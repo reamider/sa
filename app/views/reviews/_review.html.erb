@@ -1,0 +1,22 @@
+<div class="review">
+
+	<div class="review-rating" data-score="<%= review.rating %>"></div>
+	<p class="review-comment"><%= review.comment %></p>
+
+
+	<% if user_signed_in? %>
+
+		<% if review.user_id == current_user.id %>
+
+			<div class="links btn-group">
+
+				<%= link_to "Edytuj", edit_book_review_path(review.book, review), class: "btn btn-custom", label: "asd" %>
+				<%= link_to "DUsuń", book_review_path(review.book, review), method: :delete, data: { confirm: "Jesteś pewny?" }, class: "btn btn-custom" %>
+
+			</div>
+		
+		<% end %>	
+
+	<% end %>
+
+</div>		
